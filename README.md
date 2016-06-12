@@ -7,4 +7,4 @@ See you soon ;)
 
 ## Support & Documentation
 
-I use cloude9. It's for lerning and trying some stuff.
+I use cloude9. It's for lerning and trying some stuff. Do not expect miracles.
