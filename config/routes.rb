@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+  get 'comment/index'
+
+  get 'comment/new'
+
+  get 'comment/create'
+
+  get 'comment/show'
+
+  get 'comment/destroy'
+
   devise_for :users
   root 'home#index'
   get 'kontakt' => 'home#contact', as: :contact
+  resources :comment
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
