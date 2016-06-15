@@ -28,6 +28,7 @@
         <li<% if params[:controller] == "devise/sessions" && params[:action] == "new" %> class="active" <% end %>><a href="/users/sign_in">Zaloguj się <span class="sr-only">(current)</span></a></li>
         <% else %>
         <li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %><span class="sr-only">(current)</span></a></li>
+        <li><%= link_to "Profil", edit_user_registration_path, method: :get %><span class="sr-only">(current)</span></a></li>
         <% end %>
         <li<% if params[:controller] == "home" && params[:action] == "contact" %> class="active" <% end %>><a href="<%= contact_path %>">Kontakt</a></li>
         <li class="dropdown">
