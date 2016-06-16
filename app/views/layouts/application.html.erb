@@ -17,7 +17,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<%= root_path %>">Strona główna</a>
+       <%= link_to "Strona główna", root_path, method: :get, :class => "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,14 +28,14 @@
         <li<% if params[:controller] == "devise/sessions" && params[:action] == "new" %> class="active" <% end %>><a href="/users/sign_in">Zaloguj się <span class="sr-only">(current)</span></a></li>
         <% else %>
         <li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %><span class="sr-only">(current)</span></a></li>
-        <li><%= link_to "Profil", edit_user_registration_path, method: :get %><span class="sr-only">(current)</span></a></li>
+        <li<% if params[:controller] == "devise/registrations" && params[:action] == "edit" %> class="active" <% end %>><%= link_to "Profil", edit_user_registration_path, method: :get %><span class="sr-only">(current)</span></a></li>
         <% end %>
         <li<% if params[:controller] == "home" && params[:action] == "contact" %> class="active" <% end %>><a href="<%= contact_path %>">Kontakt</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lista <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Komentarze użytkowników</a></li>
-            <li><a href="#">cos2</a></li>
+            <li><%= link_to "Nowy Komentarz", comments_path, method: :get %></li>
             <li><a href="#">cos3</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">cos4</a></li>
@@ -52,19 +52,8 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li><a>Witaj <%= current_user.email %></a></li>
+        <li><a>Witaj <%= current_user.username %></a></li>
         <% end %>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
