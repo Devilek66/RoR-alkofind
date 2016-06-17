@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav">
         <% if not user_signed_in? %>
         <li<% if params[:controller] == "devise/registrations" && params[:action] == "new" %> class="active" <% end %>><a href="/users/sign_up">Zarejestruj się <span class="sr-only">(current)</span></a></li>
-        <li<% if params[:controller] == "devise/sessions" && params[:action] == "new" %> class="active" <% end %>><a href="/users/sign_in">Zaloguj się <span class="sr-only">(current)</span></a></li>
+        <li<% if params[:controller] == "devise/sessions" && params[:action] == "new" %> class="active" <% end %>><%= link_to "Zaloguj się",new_user_session_path, method: :get%> <span class="sr-only">(current)</span></a></li>
         <% else %>
         <li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %><span class="sr-only">(current)</span></a></li>
         <li<% if params[:controller] == "devise/registrations" && params[:action] == "edit" %> class="active" <% end %>><%= link_to "Profil", edit_user_registration_path, method: :get %><span class="sr-only">(current)</span></a></li>
@@ -34,8 +34,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lista <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Komentarze użytkowników</a></li>
-            <li><%= link_to "Nowy Komentarz", comments_path, method: :get %></li>
+            <li><%= link_to "Komentarze użytkowników", comments_path, method: :get%></a></li>
+            <li><%= link_to "Nowy Komentarz", new_comment_path, method: :get %></li>
             <li><a href="#">cos3</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">cos4</a></li>

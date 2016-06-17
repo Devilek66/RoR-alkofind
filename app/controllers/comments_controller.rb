@@ -1,17 +1,23 @@
 class CommentsController < ApplicationController
   
   def index
+    @comments = Comment.all
   end
   
   def new
   end
 
   def show
+     @comment = Comment.find(params[:id])
   end
 
   def create
-    @comment = Comments.new(params[:comment])
- 
+    @comment = Comment.new(comment_params)
+    if current_user.blank?
+      @comment.author = "Anonim"
+    else
+    @comment.author = current_user.username
+    end
     @comment.save
     redirect_to @comment
   end

@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
         where(conditions.to_h).first
       end
   end
+  has_many :comment
 end
