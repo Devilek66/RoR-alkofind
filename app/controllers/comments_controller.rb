@@ -13,11 +13,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if current_user.blank?
-      @comment.author = "Anonim"
-    else
-    @comment.author = current_user.username
-    end
+    @comment.user ||= current_user
+    #
+    #if current_user.blank?
+    #  @comment.author = "Anonim"
+    #else
+    #@comment.author = current_user.username
+    #end
+    #
     @comment.save
     redirect_to @comment
   end
