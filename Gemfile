@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 #New added by Devilek66:
+
 #Gem to user authentication
 gem 'devise'
+#bootstrap
 gem 'twitter-bootstrap-rails'
-
+#for google-maps
+gem 'gmaps4rails'
 #End of Devilek66
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

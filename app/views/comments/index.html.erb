@@ -12,7 +12,7 @@
     <tr>
       <td><%= comment.title %></td>
       <td><%= comment.text %></td>
-      <td><%= comment.user.username unless comment.user.blank?%></td>
+      <td><%= comment.user.blank? ? "Anonim" : comment.user.username  %></td>
       <td><%= link_to 'Show', comment_path(comment) %></td>
       <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     </tr>
