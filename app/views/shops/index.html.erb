@@ -37,18 +37,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 52.273352,
-      "lng": 20.942833,
-      "picture": {
-        "url": "http://www.fancyicons.com/free-icons/232/cinema/png/32/penis_32.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "hello!"
-    }
-  ]);
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
