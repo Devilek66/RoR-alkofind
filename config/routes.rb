@@ -3,13 +3,21 @@ Rails.application.routes.draw do
 
   resources :shops
 
+  resources :shops do
+    resources :towns
+  end
+
+  resources :towns do
+    resources :countries
+  end
+
   resources :comments
-  
+
 
   devise_for :users
   root 'home#index'
   get 'kontakt' => 'home#contact', as: :contact
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,6 +3,37 @@
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
 
+<table class="table">
+  <tr>
+    <th>Kraj</th>
+    <th>Miasto</th>
+    <th>Nazwa Sklepu</th>
+    <th>Ulica</th>
+    <th>Nr budynku</th>
+    <th>Czynny</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Dodał</th>
+  </tr>
+
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= unless shop.town.blank? then shop.town.country.name else "Nieznane" end %></td>
+      <td><%= shop.town.blank? ? "Nieznane" : shop.town.name %></td>
+      <td><%= shop.name %></td>
+      <td><%= shop.street %></td>
+      <td><%= shop.number %></td>
+      <td><%= if shop.open_hour.to_f === shop.close_hour.to_f then "24h" else
+        (shop.open_hour) end %></td>
+      <td><%= shop.lat %></td>
+      <td><%= shop.lng %></td>
+      <td><%= shop.user.blank? ? "Anonim" : shop.user.username %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
@@ -31,7 +62,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.fitMapToBounds();
 });
     </script>
-    
+
 =end
 -->
 <script type="text/javascript">

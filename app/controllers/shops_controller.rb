@@ -15,11 +15,24 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @shop = Shop.find(params[:id])
   end
 
   def new
   end
 
+  def create
+    @shop = Shop.new(shop_params)
+    @shop.user ||= current_user
+
+    @shop.save
+    redirect_to @shop
+  end
+
   def edit
+  end
+  private
+  def shop_params
+    params.require(:shop).permit(:name, :lat, :lng)
   end
 end

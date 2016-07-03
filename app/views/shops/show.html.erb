@@ -1,2 +1,22 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<h2>Shops#show</h2>
+<p>
+  <strong>Nazwa:</strong>
+  <%= @shop.name %>
+</p>
+
+<p>
+  <strong>lat:</strong>
+  <%= @shop.lat %>
+</p>
+
+<p>
+  <strong>lng:</strong>
+  <%= @shop.lng %>
+</p>
+
+<p>
+  <strong>Dodał:</strong>
+  <%= @shop.user.blank? ? "Anonim" : @shop.user.username %>
+</p>
+
+<%= link_to 'Back', shops_path %>

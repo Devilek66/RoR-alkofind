@@ -53,6 +53,18 @@
             <li><a href="#">cos5</a></li>
           </ul>
         </li>
+        <li class="dropdown"> <!-- Shops bar -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lista Sklepów<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Sklepy",  shops_path, method: :get%></a></li>
+            <li><%= link_to "Nowy sklep", new_shop_path, method: :get%></a></li>
+            <li><a href="#">cos3</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">cos4</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">cos5</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

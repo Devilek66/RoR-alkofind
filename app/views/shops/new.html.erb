@@ -1,2 +1,51 @@
 <h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+<%= form_for :shop, url: shops_path do |f| %>
+  <p>
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </p>
+
+  <p>
+    <%= f.label :town %><br>
+    <%= f.text_field :town %>
+  </p>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </p>
+
+  <p>
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </p>
+
+  <p>
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </p>
+
+  <p>
+    <%= f.label :lng %><br>
+    <%= f.text_field :lng %>
+  </p>
+
+  <p>
+    <%= f.label :open_hour %><br>
+    <%= f.text_field :open_hour %>
+  </p>
+
+  <p>
+    <%= f.label :close_hour %><br>
+    <%= f.text_field :close_hour %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
